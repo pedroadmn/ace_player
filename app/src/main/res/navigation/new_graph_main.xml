@@ -14,15 +14,9 @@
             android:id="@+id/action_loginFragment_to_registrationFragment"
             app:destination="@id/registrationFragment" />
         <action
-            android:id="@+id/action_loginFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
+            android:id="@+id/action_loginFragment_to_homeFragment"
+            app:destination="@id/new_graph_home" />
     </fragment>
-
-    <fragment
-        android:id="@+id/mainFragment"
-        android:name="br.com.pedroadmn.aceplayer.ui.main.MainFragment"
-        android:label="@string/main_action_bar_title"
-        tools:layout="@layout/fragment_main" />
 
     <fragment
         android:id="@+id/registrationFragment"
@@ -30,7 +24,17 @@
         android:label="@string/registration_action_bar_title"
         tools:layout="@layout/fragment_registration">
         <action
-            android:id="@+id/action_registrationFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
+            android:id="@+id/action_registrationFragment_to_homeFragment"
+            app:destination="@id/new_graph_home" />
     </fragment>
+
+    <include app:graph="@navigation/new_graph_home" />
+
+<!--    <fragment-->
+<!--        android:id="@+id/mainFragment"-->
+<!--        android:name="br.com.pedroadmn.aceplayer.ui.main.HomeFragment"-->
+<!--        android:label="@string/main_action_bar_title"-->
+<!--        tools:layout="@layout/fragment_main" />-->
+
+
 </navigation>

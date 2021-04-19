@@ -42,7 +42,7 @@ class LoginFragment : Fragment() {
                 }
 
                 is LoginViewModel.AuthenticationState.Authenticated -> {
-                    findNavController().navigateWithAnimations(R.id.action_loginFragment_to_mainFragment)
+                    findNavController().navigateWithAnimations(R.id.action_loginFragment_to_homeFragment)
                 }
             }
         })
@@ -60,15 +60,15 @@ class LoginFragment : Fragment() {
         }
 
         loginBiding.btEnter.setOnClickListener {
-            val username = loginBiding.etLoginEmail.text.toString()
+            val email = loginBiding.etLoginEmail.text.toString()
             val password = loginBiding.etLoginPassword.text.toString()
 
-            viewModel.authenticate(username, password)
+            viewModel.authenticate(email, password)
         }
     }
 
     private fun initValidationFields() = mapOf(
-        LoginViewModel.INPUT_USERNAME.first to loginBiding.etLoginEmail,
+        LoginViewModel.INPUT_EMAIL.first to loginBiding.etLoginEmail,
         LoginViewModel.INPUT_PASSWORD.first to loginBiding.etLoginPassword
     )
 }

@@ -67,7 +67,7 @@ class RegistrationFragment : Fragment() {
                     val username = registrationBiding.etRegisterName.text.toString()
 
                     loginViewModel.authenticateToken(token, username)
-                    findNavController().navigateWithAnimations(R.id.action_registrationFragment_to_mainFragment)
+                    findNavController().navigateWithAnimations(R.id.action_registrationFragment_to_homeFragment)
                 }
 
                 is RegistrationViewModel.RegistrationState.InvalidCredentials -> {

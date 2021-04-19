@@ -67,9 +67,9 @@ class RegistrationViewModel(/*private val userRepository: UserRepository*/) : Vi
     }
 
     companion object {
-        val INPUT_NAME = "INPUT_NAME" to R.string.profile_data_input_layout_error_invalid_name
-        val INPUT_EMAIL = "INPUT_EMAIL" to R.string.profile_data_input_layout_error_invalid_email
-        val INPUT_PASSWORD = "INPUT_PASSWORD" to R.string.profile_data_input_layout_error_invalid_password
+        val INPUT_NAME = "INPUT_NAME" to R.string.registration_input_layout_error_invalid_name
+        val INPUT_EMAIL = "INPUT_EMAIL" to R.string.registration_input_layout_error_invalid_email
+        val INPUT_PASSWORD = "INPUT_PASSWORD" to R.string.registration_input_layout_error_invalid_password
     }
 
 //    class RegistrationViewModelFactory(private val userRepository: UserRepository) : ViewModelProvider.Factory {

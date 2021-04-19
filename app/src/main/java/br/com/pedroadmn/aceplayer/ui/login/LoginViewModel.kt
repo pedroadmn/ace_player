@@ -13,7 +13,7 @@ class LoginViewModel : ViewModel() {
         class InvalidAuthentication(val fields: List<Pair<String, Int>>) : AuthenticationState()
     }
 
-    var username: String = ""
+    var email: String = ""
     var token: String = ""
 
     private val _authenticationStateEvent = MutableLiveData<AuthenticationState>()
@@ -31,13 +31,13 @@ class LoginViewModel : ViewModel() {
 
     fun authenticateToken(token: String, username: String) {
         this.token = token
-        this.username = username
+        this.email = username
         _authenticationStateEvent.value = AuthenticationState.Authenticated
     }
 
-    fun authenticate(username: String, password: String) {
-        if (isValidForm(username, password)) {
-            this.username = username
+    fun authenticate(email: String, password: String) {
+        if (isValidForm(email, password)) {
+            this.email = email
             _authenticationStateEvent.value = AuthenticationState.Authenticated
         }
     }
@@ -45,7 +45,7 @@ class LoginViewModel : ViewModel() {
     private fun isValidForm(username: String, password: String): Boolean {
         val invalidFields = arrayListOf<Pair<String, Int>>()
         if (username.isEmpty()) {
-            invalidFields.add(INPUT_USERNAME)
+            invalidFields.add(INPUT_EMAIL)
         }
 
         if (password.isEmpty()) {
@@ -62,7 +62,7 @@ class LoginViewModel : ViewModel() {
     }
 
     companion object {
-        val INPUT_USERNAME = "INPUT_USERNAME" to R.string.login_input_layout_error_invalid_username
+        val INPUT_EMAIL = "INPUT_EMAIL" to R.string.login_input_layout_error_invalid_email
         val INPUT_PASSWORD = "INPUT_PASSWORD" to R.string.login_input_layout_error_invalid_password
     }
 }

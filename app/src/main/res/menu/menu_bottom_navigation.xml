@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/icHome"
+        android:title="Home"
+        android:icon="@drawable/ic_baseline_home_black_24"/>
+
+    <item android:id="@+id/icExplore"
+        android:title="Explore"
+        android:icon="@drawable/ic_baseline_explore_black_24"/>
+
+    <item android:id="@+id/icPost"
+        android:title="Post"
+        android:icon="@drawable/ic_baseline_add_box_24"/>
+
+    <item android:id="@+id/icSubscription"
+        android:title="Subscription"
+        android:icon="@drawable/ic_baseline_subscriptions_black_24"/>
+</menu>
