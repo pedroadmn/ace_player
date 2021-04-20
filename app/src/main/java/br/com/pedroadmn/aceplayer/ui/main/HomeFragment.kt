@@ -29,18 +29,20 @@ class HomeFragment : Fragment() {
 
 
 
-        loginViewModel.authenticationStateEvent.observe(viewLifecycleOwner, Observer { authenticationState ->
-            when(authenticationState) {
-                is LoginViewModel.AuthenticationState.Authenticated -> {
-                    activity?.bottomNavigation?.visibility = View.VISIBLE
-                    activity?.toolbar?.visibility = View.VISIBLE
+        loginViewModel.authenticationStateEvent.observe(
+            viewLifecycleOwner,
+            Observer { authenticationState ->
+                when (authenticationState) {
+                    is LoginViewModel.AuthenticationState.Authenticated -> {
+                        activity?.bottomNavigation?.visibility = View.VISIBLE
+                        activity?.toolbar?.visibility = View.VISIBLE
 //                    tvWelcome.text = getString(R.string.profile_text_welcome, loginViewModel.email)
-                }
+                    }
 
-                is LoginViewModel.AuthenticationState.Unauthenticated -> {
-                    findNavController().navigate(R.id.loginFragment)
+                    is LoginViewModel.AuthenticationState.Unauthenticated -> {
+                        findNavController().navigate(R.id.loginFragment)
+                    }
                 }
-            }
-        })
+            })
     }
 }

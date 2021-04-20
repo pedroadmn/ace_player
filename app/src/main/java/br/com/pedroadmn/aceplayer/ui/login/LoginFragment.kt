@@ -35,32 +35,26 @@ class LoginFragment : Fragment() {
 
         activity?.bottomNavigation?.visibility = View.GONE
 
-        viewModel.authenticationStateEvent.observe(viewLifecycleOwner, Observer { authenticationState ->
-            when(authenticationState) {
-                is LoginViewModel.AuthenticationState.InvalidAuthentication -> {
-                     val validationFields: Map<String, EditText> = initValidationFields()
+        viewModel.authenticationStateEvent.observe(
+            viewLifecycleOwner,
+            Observer { authenticationState ->
+                when (authenticationState) {
+                    is LoginViewModel.AuthenticationState.InvalidAuthentication -> {
+                        val validationFields: Map<String, EditText> = initValidationFields()
 
-                    authenticationState.fields.forEach { errorField ->
-                        validationFields[errorField.first]?.error = getString(errorField.second)
+                        authenticationState.fields.forEach { errorField ->
+                            validationFields[errorField.first]?.error = getString(errorField.second)
+                        }
+                    }
+
+                    is LoginViewModel.AuthenticationState.Authenticated -> {
+                        findNavController().popBackStack()
                     }
                 }
-
-                is LoginViewModel.AuthenticationState.Authenticated -> {
-                    findNavController().popBackStack()
-                }
-            }
-        })
+            })
 
         loginBiding.tvRegister.setOnClickListener {
-            findNavController().navigateWithAnimations(R.id.registrationFragment)
-        }
-
-        loginBiding.etLoginEmail.addTextChangedListener {
-//            inputLayoutLoginUsername.dismissError()
-        }
-
-        loginBiding.etLoginPassword.addTextChangedListener {
-//            inputLayoutLoginPassword.dismissError()
+            findNavController().navigateWithAnimations(R.id.action_loginFragment_to_registrationFragment)
         }
 
         loginBiding.btEnter.setOnClickListener {

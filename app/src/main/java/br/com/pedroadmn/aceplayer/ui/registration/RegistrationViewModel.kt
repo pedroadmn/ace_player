@@ -7,12 +7,13 @@ import br.com.pedroadmn.aceplayer.R
 class RegistrationViewModel(/*private val userRepository: UserRepository*/) : ViewModel() {
 
     sealed class RegistrationState {
-        object CollectProfileData :  RegistrationState()
+        object CollectProfileData : RegistrationState()
         object RegistrationCompleted : RegistrationState()
         class InvalidCredentials(val fields: List<Pair<String, Int>>) : RegistrationState()
     }
 
-    private val _registrationStateEvent = MutableLiveData<RegistrationState>(RegistrationState.CollectProfileData)
+    private val _registrationStateEvent =
+        MutableLiveData<RegistrationState>(RegistrationState.CollectProfileData)
 
     val registrationStateEvent: LiveData<RegistrationState>
         get() = _registrationStateEvent
@@ -60,7 +61,7 @@ class RegistrationViewModel(/*private val userRepository: UserRepository*/) : Vi
         return true
     }
 
-    fun userCancelledRegistration() : Boolean {
+    fun userCancelledRegistration(): Boolean {
         authToken = ""
         _registrationStateEvent.value = RegistrationState.CollectProfileData
         return true
@@ -69,7 +70,8 @@ class RegistrationViewModel(/*private val userRepository: UserRepository*/) : Vi
     companion object {
         val INPUT_NAME = "INPUT_NAME" to R.string.registration_input_layout_error_invalid_name
         val INPUT_EMAIL = "INPUT_EMAIL" to R.string.registration_input_layout_error_invalid_email
-        val INPUT_PASSWORD = "INPUT_PASSWORD" to R.string.registration_input_layout_error_invalid_password
+        val INPUT_PASSWORD =
+            "INPUT_PASSWORD" to R.string.registration_input_layout_error_invalid_password
     }
 
 //    class RegistrationViewModelFactory(private val userRepository: UserRepository) : ViewModelProvider.Factory {

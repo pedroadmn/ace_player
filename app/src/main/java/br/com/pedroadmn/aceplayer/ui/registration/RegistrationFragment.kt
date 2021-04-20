@@ -15,6 +15,7 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import br.com.pedroadmn.aceplayer.R
 import br.com.pedroadmn.aceplayer.databinding.FragmentRegistrationBinding
+import br.com.pedroadmn.aceplayer.extensions.navigateWithAnimations
 import br.com.pedroadmn.aceplayer.ui.login.LoginViewModel
 
 class RegistrationFragment : Fragment() {
@@ -59,23 +60,25 @@ class RegistrationFragment : Fragment() {
     )
 
     private fun listenToRegistrationStateEvent(validationFields: Map<String, EditText>) {
-        registrationViewModel.registrationStateEvent.observe(viewLifecycleOwner, Observer { registrationState ->
-            when (registrationState) {
-                is RegistrationViewModel.RegistrationState.RegistrationCompleted -> {
-                    val token = registrationViewModel.authToken
-                    val username = registrationBiding.etRegisterName.text.toString()
+        registrationViewModel.registrationStateEvent.observe(
+            viewLifecycleOwner,
+            Observer { registrationState ->
+                when (registrationState) {
+                    is RegistrationViewModel.RegistrationState.RegistrationCompleted -> {
+                        val token = registrationViewModel.authToken
+                        val username = registrationBiding.etRegisterName.text.toString()
 
-                    loginViewModel.authenticateToken(token, username)
-                    navController.popBackStack(R.id.homeFragment, false)
-                }
+                        loginViewModel.authenticateToken(token, username)
+                        navController.popBackStack(R.id.homeFragment, false)
+                    }
 
-                is RegistrationViewModel.RegistrationState.InvalidCredentials -> {
-                    registrationState.fields.forEach { fieldError ->
-                        validationFields[fieldError.first]?.error = getString(fieldError.second)
+                    is RegistrationViewModel.RegistrationState.InvalidCredentials -> {
+                        registrationState.fields.forEach { fieldError ->
+                            validationFields[fieldError.first]?.error = getString(fieldError.second)
+                        }
                     }
                 }
-            }
-        })
+            })
     }
 
     private fun registerViewListeners() {
@@ -93,6 +96,10 @@ class RegistrationFragment : Fragment() {
 
         registrationBiding.etRegisterPassword.addTextChangedListener {
 //            inputLayoutChooseCredentialsPassword.dismissError()
+        }
+
+        registrationBiding.tvLogIn.setOnClickListener {
+            findNavController().navigateWithAnimations(R.id.loginFragment)
         }
     }
 

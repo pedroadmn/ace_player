@@ -4,12 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/login_background"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
     <include
         layout="@layout/include_toolbar"
-        android:visibility="gone"/>
+        android:visibility="gone" />
 
     <fragment
         android:id="@+id/navHostFragment"
@@ -18,7 +19,7 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         app:defaultNavHost="true"
-        app:navGraph="@navigation/new_graph_home"/>
+        app:navGraph="@navigation/new_graph_home" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigation"

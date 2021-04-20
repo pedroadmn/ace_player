@@ -9,7 +9,7 @@
         android:id="@+id/homeFragment"
         android:name="br.com.pedroadmn.aceplayer.ui.main.HomeFragment"
         android:label="@string/home_action_bar_title"
-        tools:layout="@layout/fragment_home"/>
+        tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/exploreFragment"
@@ -43,5 +43,5 @@
         android:id="@+id/registrationFragment"
         android:name="br.com.pedroadmn.aceplayer.ui.registration.RegistrationFragment"
         android:label="@string/registration_action_bar_title"
-        tools:layout="@layout/fragment_registration"/>
+        tools:layout="@layout/fragment_registration" />
 </navigation>

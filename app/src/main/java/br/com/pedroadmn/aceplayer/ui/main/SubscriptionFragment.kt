@@ -24,16 +24,18 @@ class SubscriptionFragment : BaseBottomTabFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        loginViewModel.authenticationStateEvent.observe(viewLifecycleOwner, Observer { authenticationState ->
-            when(authenticationState) {
-                is LoginViewModel.AuthenticationState.Authenticated -> {
+        loginViewModel.authenticationStateEvent.observe(
+            viewLifecycleOwner,
+            Observer { authenticationState ->
+                when (authenticationState) {
+                    is LoginViewModel.AuthenticationState.Authenticated -> {
 //                    tvWelcome.text = getString(R.string.profile_text_welcome, loginViewModel.email)
-                }
+                    }
 
-                is LoginViewModel.AuthenticationState.Unauthenticated -> {
-                    findNavController().navigate(R.id.loginFragment)
+                    is LoginViewModel.AuthenticationState.Unauthenticated -> {
+                        findNavController().navigate(R.id.loginFragment)
+                    }
                 }
-            }
-        })
+            })
     }
 }
