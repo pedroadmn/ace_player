@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
+import androidx.activity.addCallback
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -13,6 +14,7 @@ import androidx.navigation.fragment.findNavController
 import br.com.pedroadmn.aceplayer.R
 import br.com.pedroadmn.aceplayer.databinding.FragmentLoginBinding
 import br.com.pedroadmn.aceplayer.extensions.navigateWithAnimations
+import kotlinx.android.synthetic.main.activity_main.*
 
 class LoginFragment : Fragment() {
 
@@ -31,6 +33,8 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        activity?.bottomNavigation?.visibility = View.GONE
+
         viewModel.authenticationStateEvent.observe(viewLifecycleOwner, Observer { authenticationState ->
             when(authenticationState) {
                 is LoginViewModel.AuthenticationState.InvalidAuthentication -> {
@@ -42,7 +46,7 @@ class LoginFragment : Fragment() {
                 }
 
                 is LoginViewModel.AuthenticationState.Authenticated -> {
-                    findNavController().navigateWithAnimations(R.id.action_loginFragment_to_homeFragment)
+                    findNavController().popBackStack()
                 }
             }
         })
@@ -64,6 +68,10 @@ class LoginFragment : Fragment() {
             val password = loginBiding.etLoginPassword.text.toString()
 
             viewModel.authenticate(email, password)
+        }
+
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
+
         }
     }
 

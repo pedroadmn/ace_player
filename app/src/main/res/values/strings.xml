@@ -24,4 +24,16 @@
     <string name="registration_input_layout_error_invalid_password">Invalid password</string>
     <string name="registration_input_layout_error_invalid_email">Invalid email</string>
     <string name="registration_btn_register">Register</string>
+
+    <!-- Home Fragment -->
+    <string name="home_action_bar_title">Home</string>
+
+    <!-- Explore Fragment -->
+    <string name="explore_action_bar_title">Explore</string>
+
+    <!-- Post Fragment -->
+    <string name="post_action_bar_title">Post</string>
+
+    <!-- Subscription Fragment -->
+    <string name="subscription_action_bar_title">Subscription</string>
 </resources>

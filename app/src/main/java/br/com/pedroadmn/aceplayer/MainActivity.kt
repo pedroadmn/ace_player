@@ -8,8 +8,10 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import br.com.pedroadmn.aceplayer.R.id
+import br.com.pedroadmn.aceplayer.R.layout
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.include_toolbar.*
-import kotlinx.android.synthetic.main.navigation_bottom.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,16 +20,16 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(layout.activity_main)
 
         setSupportActionBar(toolbar)
 
-        navController = findNavController(R.id.navHostFragment)
-        appBarConfiguration = AppBarConfiguration(navController.graph)
+        navController = findNavController(id.navHostFragment)
+        appBarConfiguration = AppBarConfiguration(setOf(id.homeFragment, id.exploreFragment, id.postFragment, id.subscriptionFragment))
 
         setupActionBarWithNavController(navController, appBarConfiguration)
 
-//        bottomNavigation?.setupWithNavController(navController)
+        bottomNavigation?.setupWithNavController(navController)
     }
 
     override fun onSupportNavigateUp(): Boolean {

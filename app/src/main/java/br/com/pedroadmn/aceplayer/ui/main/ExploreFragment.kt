@@ -11,8 +11,6 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import br.com.pedroadmn.aceplayer.R
 import br.com.pedroadmn.aceplayer.ui.login.LoginViewModel
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.fragment_main.*
 
 class ExploreFragment : Fragment() {
 
