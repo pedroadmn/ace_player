@@ -19,3 +19,14 @@ fun NavController.navigateWithAnimations(destinationId: Int) {
 fun NavController.navigateWithAnimations(directions: NavDirections) {
     this.navigate(directions, navOptions)
 }
+
+fun NavController.popBackStackAllInstances(destination: Int, inclusive: Boolean): Boolean {
+    var popped: Boolean
+    while (true) {
+        popped = popBackStack(destination, inclusive)
+        if (!popped) {
+            break
+        }
+    }
+    return popped
+}

@@ -36,4 +36,6 @@
 
     <!-- Subscription Fragment -->
     <string name="subscription_action_bar_title">Subscription</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

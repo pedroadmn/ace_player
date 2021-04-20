@@ -3,17 +3,21 @@
 
     <item android:id="@+id/homeFragment"
         android:title="Home"
-        android:icon="@drawable/ic_baseline_home_black_24"/>
+        android:icon="@drawable/ic_baseline_home_black_24"
+        android:menuCategory="secondary"/>
 
     <item android:id="@+id/exploreFragment"
         android:title="Explore"
-        android:icon="@drawable/ic_baseline_explore_black_24"/>
+        android:icon="@drawable/ic_baseline_explore_black_24"
+        android:menuCategory="secondary"/>
 
     <item android:id="@+id/postFragment"
         android:title="Post"
-        android:icon="@drawable/ic_baseline_add_box_24"/>
+        android:icon="@drawable/ic_baseline_add_box_24"
+        android:menuCategory="secondary"/>
 
     <item android:id="@+id/subscriptionFragment"
         android:title="Subscription"
-        android:icon="@drawable/ic_baseline_subscriptions_black_24"/>
+        android:icon="@drawable/ic_baseline_subscriptions_black_24"
+        android:menuCategory="secondary"/>
 </menu>

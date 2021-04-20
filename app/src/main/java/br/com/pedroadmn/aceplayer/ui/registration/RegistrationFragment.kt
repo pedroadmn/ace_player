@@ -15,7 +15,6 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import br.com.pedroadmn.aceplayer.R
 import br.com.pedroadmn.aceplayer.databinding.FragmentRegistrationBinding
-import br.com.pedroadmn.aceplayer.extensions.navigateWithAnimations
 import br.com.pedroadmn.aceplayer.ui.login.LoginViewModel
 
 class RegistrationFragment : Fragment() {
